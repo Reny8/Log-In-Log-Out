@@ -1,9 +1,23 @@
-import { Router, Request, Response } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 
 interface RequestWithBody extends Request {
   body: { [key: string]: string | undefined };
 }
 
+function requireAuth(req: Request, res: Response, next: NextFunction): void {
+  if (req.session && req.session.loggedIn) {
+    next();
+    return;
+  }
+  res.status(403);
+  res.send(
+    `
+    <div style="position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);">
+    <h1 style="text-align: center;">Not Permitted</h1>
+    </div>
+    `
+  );
+}
 const router = Router();
 
 router.get("/login", (request: RequestWithBody, response: Response) => {
@@ -72,4 +86,13 @@ router.get("/logout", (request: RequestWithBody, response: Response) => {
   response.redirect("/");
 });
 
+router.get("/protected", requireAuth, (req: Request, res: Response) => {
+  res.send(
+    `
+        <div style="position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);">
+        <h1 style="text-align: center;">Welcome to the protected route, logged in user!</h1>
+        </div>
+        `
+  );
+});
 export { router };

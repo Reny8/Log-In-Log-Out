@@ -1,6 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
+function requireAuth(req, res, next) {
+    if (req.session && req.session.loggedIn) {
+        next();
+        return;
+    }
+    res.status(403);
+    res.send("\n    <div style=\"position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);\">\n    <h1 style=\"text-align: center;\">Not Permitted</h1>\n    </div>\n    ");
+}
 var router = express_1.Router();
 exports.router = router;
 router.get("/login", function (request, response) {
@@ -30,4 +38,7 @@ router.post("/login", function (request, response) {
 router.get("/logout", function (request, response) {
     request.session = undefined;
     response.redirect("/");
+});
+router.get("/protected", requireAuth, function (req, res) {
+    res.send("\n        <div style=\"position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);\">\n        <h1 style=\"text-align: center;\">Welcome to the protected route, logged in user!</h1>\n        </div>\n        ");
 });
