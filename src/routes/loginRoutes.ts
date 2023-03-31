@@ -44,11 +44,11 @@ router.get("/", (request: RequestWithBody, response: Response) => {
       `
         <div style="position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);">
         <h1 style="text-align: center;">You are successfully logged in!</h1>
-        <button style="width:-webkit-fill-available;" >
         <a href="/logout" style="text-decoration:none;color:black">
+        <button style="width:-webkit-fill-available;" >
         Logout
-        </a>
         </button>
+        </a>
         </div>
         `
     );
@@ -57,11 +57,11 @@ router.get("/", (request: RequestWithBody, response: Response) => {
       `
         <div style="position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);">
         <h1  style="text-align: center;">You need to login</h1>
-        <button  style="width:-webkit-fill-available;" >
         <a href="/login" style="text-decoration:none;color:black">
+        <button  style="width:-webkit-fill-available;" >
         Login
-        </a>
         </button>
+        </a>
         </div>
         `
     );

@@ -16,10 +16,10 @@ router.get("/login", function (request, response) {
 });
 router.get("/", function (request, response) {
     if (request.session && request.session.loggedIn) {
-        response.send("\n        <div style=\"position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);\">\n        <h1 style=\"text-align: center;\">You are successfully logged in!</h1>\n        <button style=\"width:-webkit-fill-available;\" >\n        <a href=\"/logout\" style=\"text-decoration:none;color:black\">\n        Logout\n        </a>\n        </button>\n        </div>\n        ");
+        response.send("\n        <div style=\"position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);\">\n        <h1 style=\"text-align: center;\">You are successfully logged in!</h1>\n        <a href=\"/logout\" style=\"text-decoration:none;color:black\">\n        <button style=\"width:-webkit-fill-available;\" >\n        Logout\n        </button>\n        </a>\n        </div>\n        ");
     }
     else {
-        response.send("\n        <div style=\"position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);\">\n        <h1  style=\"text-align: center;\">You need to login</h1>\n        <button  style=\"width:-webkit-fill-available;\" >\n        <a href=\"/login\" style=\"text-decoration:none;color:black\">\n        Login\n        </a>\n        </button>\n        </div>\n        ");
+        response.send("\n        <div style=\"position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);\">\n        <h1  style=\"text-align: center;\">You need to login</h1>\n        <a href=\"/login\" style=\"text-decoration:none;color:black\">\n        <button  style=\"width:-webkit-fill-available;\" >\n        Login\n        </button>\n        </a>\n        </div>\n        ");
     }
 });
 router.post("/login", function (request, response) {
