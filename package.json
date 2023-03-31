@@ -1,0 +1,27 @@
+{
+  "name": "log-in-log-out",
+  "version": "1.0.0",
+  "description": "* The purpose of this application is to learn a basic understand on our to use TypeScript with a JS library. \r * The credientials used in this application are not real and are intended for testing purposes\r * This application will give a user in the system the ability to log in, log out and navigate to certain pages when logged in",
+  "main": "index.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reny8/Log-In-Log-Out.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Reny8/Log-In-Log-Out/issues"
+  },
+  "homepage": "https://github.com/Reny8/Log-In-Log-Out#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22"
+  }
+}
