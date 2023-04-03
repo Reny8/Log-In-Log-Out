@@ -6,6 +6,7 @@ var MetadataKeys_1 = require("./MetadataKeys");
 function routeBinder(method) {
     return function (path) {
         return function (target, key, desc) {
+            // PROPERTY DESCRIPTOR WILL BE AN OBJECT THAT CONTAINS WRITABLE, CONFIGURABLE, ENUMERABLE AND VALUE PROPERTIES
             Reflect.defineMetadata(MetadataKeys_1.MetadataKeys.path, path, target, key);
             Reflect.defineMetadata(MetadataKeys_1.MetadataKeys.method, method, target, key);
         };
