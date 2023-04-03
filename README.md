@@ -31,4 +31,4 @@
 - localhost:3000/
 - localhost:3000/auth/login
 - localhost:3000/auth/logout
-- localhost:3000/auth/protected
+- localhost:3000/protected
